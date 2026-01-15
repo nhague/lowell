@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>B2B Client Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100 min-h-screen pb-20">
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between transition-colors">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Oct 24, Tuesday</span>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">Good morning, John</h2>
+</div>
+<button class="relative p-2 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+<span class="absolute top-0 right-0 bg-red-600 text-white text-[11px] font-medium rounded-full h-4 min-w-[16px] flex items-center justify-center px-1">2</span>
+</button>
+</header>
+<main class="flex flex-col gap-6 pt-6">
+<section class="px-4">
+<h1 class="text-[28px] font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-2">Welcome back!</h1>
+</section>
+<section class="flex flex-col gap-3">
+<div class="px-4 flex items-center justify-between">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">Buy Again</h3>
+<button class="text-primary text-sm font-semibold flex items-center gap-0.5">
+                See all
+                <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="flex overflow-x-auto gap-4 px-4 pb-4 snap-x hide-scrollbar">
+<div class="snap-start min-w-[160px] w-[160px] flex-shrink-0 bg-white dark:bg-slate-800 rounded-2xl p-3 border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col justify-between h-auto">
+<div>
+<div class="relative w-full aspect-square rounded-xl bg-slate-100 dark:bg-slate-700 mb-3 overflow-hidden">
+<div class="absolute top-2 left-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-[10px] font-bold px-1.5 py-0.5 rounded-md">SAVE 15%</div>
+<img alt="Cleaning Product" class="w-full h-full object-cover" data-alt="Large bottle of industrial cleaning liquid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2EaaWKiOfd5EUktgRJPvmYwx7h4G7MeK4ma8MGj7Jc0isP4cTSNrpf_Jv_HwvgkpuvRrCwOs3CJ1CA7mEunwh5rtsiqDtf9tOkX9-PRamhA7UQwoETb2FQZduWKQvcNTV8vSStYBOAzU0coZMOvN8c_Ly6Ex4XhuHua6hoDVeKvqXjMcOab1FWDJK8hJtGJgLltTba5ysfNDUULsbjnzXlkmkvlciYuVJwMv8FGBdpYdOKNa1biKs4L77uJ3qAo0Z7hTbhSbuQtc"/>
+</div>
+<p class="text-[10px] font-medium text-slate-400 dark:text-slate-500 mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">history</span> Oct 12
+                    </p>
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white leading-tight line-clamp-2 mb-2">Heavy Duty Degreaser 5L</h4>
+</div>
+<div class="mt-2">
+<p class="text-xs text-slate-400 line-through font-medium">$45.00</p>
+<div class="flex items-center justify-between mt-0.5">
+<p class="text-primary text-lg font-bold tabular-nums">$38.50</p>
+<button class="bg-primary hover:bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="snap-start min-w-[160px] w-[160px] flex-shrink-0 bg-white dark:bg-slate-800 rounded-2xl p-3 border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col justify-between h-auto">
+<div>
+<div class="relative w-full aspect-square rounded-xl bg-slate-100 dark:bg-slate-700 mb-3 overflow-hidden">
+<div class="absolute top-2 left-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-[10px] font-bold px-1.5 py-0.5 rounded-md">SAVE 12%</div>
+<img alt="Paper Towels" class="w-full h-full object-cover" data-alt="Stack of white paper tissue rolls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe3AXcHbdYIqPaMfF7OzUONR7T9GgBUsROXw7kyx3KWFvU2s630kM_IyRwCIaubG-JKLGnoBr2iOPo3ZfUpjv7qUyK0iDqTsduwOXm3kQ2XdwNNuN1Qsvn6t4uLfWxkk8z8YqanbQmpfvFjxQOkgQEQi5N1oaKhv6vBqvr8y67NkSaQn1yXgDyCR6yJAqTLfuoA9r8cOV5sxmHs121hpH_ZPJfVoVt1HyR_qx9eYZ8V1w6lDugv62cqWOKwvsdUQpCWGhbTKQRPrA"/>
+</div>
+<p class="text-[10px] font-medium text-slate-400 dark:text-slate-500 mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">history</span> Oct 01
+                    </p>
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white leading-tight line-clamp-2 mb-2">Jumbo Roll Tissue (12pk)</h4>
+</div>
+<div class="mt-2">
+<p class="text-xs text-slate-400 line-through font-medium">$32.00</p>
+<div class="flex items-center justify-between mt-0.5">
+<p class="text-primary text-lg font-bold tabular-nums">$28.00</p>
+<button class="bg-primary hover:bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="snap-start min-w-[160px] w-[160px] flex-shrink-0 bg-white dark:bg-slate-800 rounded-2xl p-3 border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col justify-between h-auto">
+<div>
+<div class="relative w-full aspect-square rounded-xl bg-slate-100 dark:bg-slate-700 mb-3 overflow-hidden">
+<img alt="Gloves" class="w-full h-full object-cover" data-alt="Blue disposable latex gloves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWfpV3NbzS-ed94L4CvBX8FvbeFJmJ-djCUMxeT34ZIGaaUnBWPqusHEmH9iFyD4ynA-W0IWCFXhYRdoUlrxQiW1QXrraZBHYHG26mZOPOOtnDSPyccLqpE2zQaaJOcm-N4vVDWhEhAD6a5rWeMtuU0GwTfsr7rPhOysnhN2avIGR_lya3USuY_ClypdrM1hEPZtslVdCyEzDsAMWEayjlVFFX1Tx1Old__0hFfTANJ8eBcTXsGF0wTx3wosFILItPBhusrWckZIQ"/>
+</div>
+<p class="text-[10px] font-medium text-slate-400 dark:text-slate-500 mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">history</span> Sep 28
+                    </p>
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white leading-tight line-clamp-2 mb-2">Nitrile Gloves Large (100)</h4>
+</div>
+<div class="mt-2">
+<p class="text-xs text-slate-400 line-through font-medium">$18.50</p>
+<div class="flex items-center justify-between mt-0.5">
+<p class="text-primary text-lg font-bold tabular-nums">$14.95</p>
+<button class="bg-primary hover:bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-4 pb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Quick Order Categories</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="group bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center justify-center gap-3 active:scale-95 transition-all cursor-pointer hover:border-primary/30">
+<div class="w-14 h-14 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">sanitizer</span>
+</div>
+<span class="font-semibold text-slate-900 dark:text-white text-center text-sm">Chemicals</span>
+</div>
+<div class="group bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center justify-center gap-3 active:scale-95 transition-all cursor-pointer hover:border-primary/30">
+<div class="w-14 h-14 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">layers</span>
+</div>
+<span class="font-semibold text-slate-900 dark:text-white text-center text-sm">Paper Products</span>
+</div>
+<div class="group bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center justify-center gap-3 active:scale-95 transition-all cursor-pointer hover:border-primary/30">
+<div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:bg-slate-600 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">delete</span>
+</div>
+<span class="font-semibold text-slate-900 dark:text-white text-center text-sm">Trash Liners</span>
+</div>
+<div class="group bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center justify-center gap-3 active:scale-95 transition-all cursor-pointer hover:border-primary/30">
+<div class="w-14 h-14 rounded-full bg-teal-50 dark:bg-teal-900/20 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">mop</span>
+</div>
+<span class="font-semibold text-slate-900 dark:text-white text-center text-sm">Mops &amp; Brooms</span>
+</div>
+<div class="group bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center justify-center gap-3 active:scale-95 transition-all cursor-pointer hover:border-primary/30">
+<div class="w-14 h-14 rounded-full bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 group-hover:bg-gray-600 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">home_repair_service</span>
+</div>
+<span class="font-semibold text-slate-900 dark:text-white text-center text-sm">Equipment</span>
+</div>
+<div class="group bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center justify-center gap-3 active:scale-95 transition-all cursor-pointer hover:border-primary/30">
+<div class="w-14 h-14 rounded-full bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">coffee</span>
+</div>
+<span class="font-semibold text-slate-900 dark:text-white text-center text-sm">Breakroom/Kitchen</span>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe pt-2 px-6 z-50">
+<ul class="flex justify-between items-center h-16">
+<li class="flex flex-col items-center justify-center w-full gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-primary text-[24px] filled">home</span>
+<span class="text-[10px] font-medium text-primary">Home</span>
+</li>
+<li class="flex flex-col items-center justify-center w-full gap-1 cursor-pointer text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+<span class="text-[10px] font-medium">Catalog</span>
+</li>
+<li class="flex flex-col items-center justify-center w-full gap-1 cursor-pointer text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]">business</span>
+</div>
+<span class="text-[10px] font-medium">Account</span>
+</li>
+<li class="flex flex-col items-center justify-center w-full gap-1 cursor-pointer text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</li>
+</ul>
+</nav>
+<div class="h-6"></div>
+</body></html>

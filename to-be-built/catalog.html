@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2936",
+                        "text-primary-light": "#0d141b",
+                        "text-primary-dark": "#e2e8f0",
+                        "text-secondary-light": "#4c739a",
+                        "text-secondary-dark": "#94a3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-text-primary-light dark:text-text-primary-dark min-h-screen flex flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 px-4 py-3 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="w-10"></div>
+<h1 class="text-lg font-bold tracking-tight">Catalog</h1>
+<div class="w-10 flex justify-end">
+<button class="relative p-2 text-text-primary-light dark:text-text-primary-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">3</span>
+</button>
+</div>
+</div>
+</header>
+<div class="px-4 py-4 bg-background-light dark:bg-background-dark">
+<div class="flex gap-2">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="block w-full p-3 pl-10 text-sm rounded-xl border-none bg-white dark:bg-surface-dark shadow-sm focus:ring-2 focus:ring-primary focus:outline-none placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark" placeholder="Search by SKU, Name, or Brand..." required="" type="text"/>
+</div>
+</div>
+</div>
+<section class="mb-2">
+<div class="px-4 pb-2 flex items-center justify-between">
+<h2 class="text-base font-bold">Buy Again</h2>
+<button class="text-xs font-medium text-primary hover:text-blue-600 transition-colors">View All</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar px-4 gap-3 pb-4">
+<div class="flex-shrink-0 w-32 flex flex-col gap-2">
+<div class="relative aspect-square rounded-xl overflow-hidden bg-white dark:bg-surface-dark shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="w-full h-full bg-cover bg-center" data-alt="Plastic gallon bottle of bleach or cleaner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRIiNLNoDUzoT6xHSa9ZJgnv-GrsY7TaGvAxs11aZ4eHCoOv__ZMwkZz_MBYPsQijGZTcJG0n0NwaJhfQpsfiEGF5PbJgGgdIVS4KWK5vRpyBD25fO_dxqdr9uZdAZ9uF6d0B4LP6iNcQ9po16M8K2Z058rFe84Yz2GRYCcTshRLunnvv2XWoXG6o8mZ0a4Xjy-W1qvv6bIk0MoJXcWfLBl03buHRgS0JrCA6PELclga6WPnsB2I2TiHYRBZe_5AyJCp_pSAT_k-I");'></div>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-1.5 rounded-lg shadow-md hover:bg-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div>
+<p class="text-sm font-medium leading-tight line-clamp-2">Gallon Bleach</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-0.5">Last: 2 days ago</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 flex flex-col gap-2">
+<div class="relative aspect-square rounded-xl overflow-hidden bg-white dark:bg-surface-dark shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="w-full h-full bg-cover bg-center" data-alt="Stack of folded paper towels" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZTrR2FNDmqDfwsA6cFW62m05vd7FxeY2-cqS24b6StSFdW5C9lM8EVpb8AxN18fkh3w3aAqDvQ6ndcpuCtvp_UQNBvYoDJ5ysco7YIxFuLf0cHkugBdp9OEMQlEPhYBfsJSMeqyytpXsAAwI5nJSfX40D8Ix1CzEfp-8xwKJbWBALJNqFFYWlwjRZvOOEC1Gfqh3QuV0DCq8xYpWFWVMQaX1uq1GarJ6WyJaErUNrpb3jUgI3LnPcuEwMWxoZJ-XjpUQ25NNJdRU");'></div>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-1.5 rounded-lg shadow-md hover:bg-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div>
+<p class="text-sm font-medium leading-tight line-clamp-2">C-Fold Towels</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-0.5">Last: 1 week ago</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 flex flex-col gap-2">
+<div class="relative aspect-square rounded-xl overflow-hidden bg-white dark:bg-surface-dark shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="w-full h-full bg-cover bg-center" data-alt="Liquid soap dispenser bottle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKT57ZNwpJvA9Ur5GxW67EX68sB_8WE1aG0dM2usFIIQ5zFVD36es7ojV660U51zMtw6Oo32wLNadi4FUixsrzI4s_pXmEf18RXuFvivhfKfkkIzZk3QG2lc5AJMF9dYSTX4CW910bCM_1PXqQrhxSt89ySIY7t2t4KVQcTqgsacJr9n4QcRjCIHbFGByMsLK6xz4O5d9kUVlb32omyr82zF_UMQXuLUeaa2oqYzizo42Za5OaS4gwRSY_Ew0IRuHUvjr-76bblgg");'></div>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-1.5 rounded-lg shadow-md hover:bg-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div>
+<p class="text-sm font-medium leading-tight line-clamp-2">Antibacterial Soap</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-0.5">Last: 3 weeks ago</p>
+</div>
+</div>
+</div>
+</section>
+<div class="px-4 pb-4 sticky top-[65px] z-40 bg-background-light dark:bg-background-dark pt-2">
+<div class="relative">
+<select class="w-full appearance-none bg-white dark:bg-surface-dark border-none rounded-xl py-3 pl-4 pr-10 text-sm font-medium shadow-sm focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer text-text-primary-light dark:text-text-primary-dark">
+<option value="all">All Categories</option>
+<option value="chemicals">Chemicals &amp; Janitorial</option>
+<option value="paper">Paper Products</option>
+<option value="tools">Cleaning Tools</option>
+<option value="waste">Waste Management</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<main class="flex-1 px-4 pb-24 flex flex-col gap-4">
+<article class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-3 flex gap-4 relative overflow-hidden">
+<div class="w-24 h-24 flex-shrink-0 bg-gray-50 dark:bg-gray-800 rounded-lg bg-cover bg-center" data-alt="Heavy duty degreaser yellow jug" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAU0__0AuLIqSQwv05Q3HUD9YXZJR93NWf4QvxK0eklLqvj1Xsnrfk6K5T08IfqkjQd7soD8hBOAirbDg2l0zBEilrSOuLOAj7KsoWKuq4n4QQugIoeIyE8GPvVUvtmPb1BTdrUQMtsrg1SJb8czgUf8LmDt379Yw9M8eY17FB3aD-UQiPRGgInNolnu8OkeBipHseg0IMd1ZYHvkeiGrqKBjtvmv-cR4lmsNctgPluRh7dmIcfztoU2kbWaF79ULODxwf3DRhPtRo");'></div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark truncate pr-2">Heavy Duty Degreaser</h3>
+</div>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium mt-0.5">SKU: 1029-X</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">5 Gal Pail</p>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-lg font-bold text-primary">$45.00</span>
+<span class="text-xs text-gray-400 line-through decoration-gray-400">$52.00</span>
+</div>
+<p class="text-[10px] text-green-600 dark:text-green-400 font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                            Your Price
+                        </p>
+</div>
+<button class="bg-primary/10 hover:bg-primary/20 active:bg-primary/30 text-primary h-8 w-8 rounded-lg flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+<div class="absolute top-0 right-0 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-bl-lg text-[10px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">storefront</span>
+                Pickup
+            </div>
+</article>
+<article class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-3 flex gap-4 relative overflow-hidden">
+<div class="w-24 h-24 flex-shrink-0 bg-gray-50 dark:bg-gray-800 rounded-lg bg-cover bg-center" data-alt="Jumbo roll toilet tissue pack" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBceAthzJja5lpG-99h3JRaHvQDHWV1cMYzaoYQtn1BjgplKGLigsZp2b8jXZ5hdH5f8HYrU4-7A6gahGr18tobD4m133I_x9Sf5fk85B9SXTy9A1BCBK-6aBQ8Pux7t2vglbnQLYUGmz-r3nIqa_1ud1sJz6i7k2U1gnzFNjnoLMXz-_jiOGglRrBnHwpMNyQR-YaOi_CH5fCjOgB-GSONaTsiMnTif5A01FjI4FGnOsX7Y3Htp0CELnKFDs4kilS2_bNtv8Lm0v0");'></div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-1">
+<div>
+<h3 class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark truncate pr-2">Jumbo Roll Toilet Tissue</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium mt-0.5">SKU: 8821-A</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Case of 12</p>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-lg font-bold text-primary">$32.50</span>
+<span class="text-xs text-gray-400 line-through decoration-gray-400">$38.99</span>
+</div>
+<p class="text-[10px] text-green-600 dark:text-green-400 font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                            Your Price
+                        </p>
+</div>
+<div class="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg h-8">
+<button class="w-8 h-full flex items-center justify-center text-text-secondary-light dark:text-text-secondary-dark hover:text-primary">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark px-1">1</span>
+<button class="w-8 h-full flex items-center justify-center text-text-secondary-light dark:text-text-secondary-dark hover:text-primary">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-bl-lg text-[10px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">storefront</span>
+                Pickup
+            </div>
+</article>
+<article class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-3 flex gap-4 relative overflow-hidden">
+<div class="w-24 h-24 flex-shrink-0 bg-gray-50 dark:bg-gray-800 rounded-lg bg-cover bg-center" data-alt="Blue nitrile gloves box" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQ_gIwkXOZ6R0vsP3hfoOadjRXQzmR3UVI-qeh-L6wTROW5XFEyTEEtSQ1Uqcxw6dl_RbDFWF6eZgTtfbJ7Xxp3jLEi6XgWec_TkSyMcGh7jqAgU3d9LL4uguf7itohTYxebiR994fOq2GTcCwvaY8L9Y7nVqCsKKvzT0pOq5E3eP_G4Ynh__Ty2eiu_wqQfLvHdN4HIsORdjnADVLTNxNYBy-i3a1XbICTBVovM95xF8TgweV2BcwNWAvFGlfeivDsWHtTMvoWM0");'></div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-1">
+<div>
+<h3 class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark truncate pr-2">Nitrile Exam Gloves</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium mt-0.5">SKU: 7712-M</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Box of 100 (Medium)</p>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-lg font-bold text-primary">$12.95</span>
+<span class="text-xs text-gray-400 line-through decoration-gray-400">$15.50</span>
+</div>
+<p class="text-[10px] text-green-600 dark:text-green-400 font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                            Your Price
+                        </p>
+</div>
+<button class="bg-primary/10 hover:bg-primary/20 active:bg-primary/30 text-primary h-8 w-8 rounded-lg flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+</article>
+<article class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-3 flex gap-4 relative overflow-hidden">
+<div class="w-24 h-24 flex-shrink-0 bg-gray-50 dark:bg-gray-800 rounded-lg bg-cover bg-center" data-alt="Industrial floor cleaner machine red" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlWxS7EW8PZWZfa22GkqWWb9NU6evyHv3OrdqX-rEyoi6YC9_lw6yVMRPNPvWx8cu-PDscyLASU3t3p3bpmuSmwyUEeBNLs9Z8SmjgPjcom5IUyML93vmpVyJOi1BaKzv7UeB1oTjzNrDNuVXWcwkTgcbnMib3WMyCVAj7xAqrJhvaJ4xSUG4OSp8eFIPFlO-3vwwStOboJAUoa1loaHEzEM3Mt_Hh6cCRKrSWH4aH5c2Xa5di5sfNnV3NmfQ8AYaMYkMfIv9jqD4");'></div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-1">
+<div>
+<h3 class="text-sm font-semibold text-text-primary-light dark:text-text-primary-dark truncate pr-2">Auto-Scrubber 20"</h3>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark font-medium mt-0.5">SKU: ASC-2000</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark">Each</p>
+</div>
+<div class="flex items-end justify-between mt-2">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-lg font-bold text-primary">$2,450.00</span>
+</div>
+<p class="text-[10px] text-orange-600 dark:text-orange-400 font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+                            Low Stock
+                        </p>
+</div>
+<button class="bg-primary/10 hover:bg-primary/20 active:bg-primary/30 text-primary h-8 w-8 rounded-lg flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+<div class="absolute top-0 right-0 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-bl-lg text-[10px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">storefront</span>
+                Pickup
+            </div>
+</article>
+</main>
+<nav class="fixed bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pb-safe">
+<div class="flex justify-around items-center h-16">
+<a class="flex flex-col items-center gap-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined filled">grid_view</span>
+<span class="text-[10px] font-medium">Catalog</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="text-[10px] font-medium">Account</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+<script>
+        // Simple logic to handle safe area padding for devices with home indicators
+        // In a real app, this would be handled by env(safe-area-inset-bottom) in CSS
+        // Adding a small padding class for demonstration
+        document.querySelector('.pb-safe').classList.add('pb-5');
+    </script>
+</body></html>

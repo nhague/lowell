@@ -1,33 +1,51 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons'; // Or use proper icon set
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { useTheme } from 'react-native-paper';
 
 import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const theme = useTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
         headerShown: false,
         tabBarButton: HapticTab,
+        tabBarStyle: {
+          backgroundColor: theme.colors.surface,
+          borderTopColor: theme.colors.outlineVariant,
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color, focused }) => <MaterialCommunityIcons size={28} name={focused ? 'home' : 'home-outline'} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="catalog"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Catalog',
+          tabBarIcon: ({ color, focused }) => <MaterialCommunityIcons size={28} name={focused ? 'view-grid' : 'view-grid-outline'} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="invoices"
+        options={{
+          title: 'Accounts',
+          tabBarIcon: ({ color, focused }) => <MaterialCommunityIcons size={28} name={focused ? 'office-building' : 'office-building-outline'} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, focused }) => <MaterialCommunityIcons size={28} name={focused ? 'account' : 'account-outline'} color={color} />,
         }}
       />
     </Tabs>

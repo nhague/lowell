@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile with Centered Matching Title</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "on-surface": "#1d1b20",
+                        "on-surface-variant": "#49454f",
+                        "outline": "#79747e",
+                        "surface": "#f8fafc",
+                        "background-light": "#f1f5f9",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-sans;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#f1f5f9] dark:bg-background-dark text-on-surface dark:text-slate-50 min-h-screen flex flex-col">
+<header class="sticky top-0 z-20 flex items-center justify-between bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 h-16 shrink-0 border-b border-slate-200/60">
+<div class="w-12 h-12"></div>
+<h1 class="absolute left-1/2 -translate-x-1/2 text-[18px] font-semibold leading-7 tracking-tight text-on-surface dark:text-slate-50">
+            Profile
+        </h1>
+<button class="flex items-center justify-center h-12 text-primary font-semibold text-base px-2">
+            Edit
+        </button>
+</header>
+<main class="flex-1 overflow-y-auto pb-24">
+<section class="flex flex-col items-center py-8 px-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-28 w-28 shadow-sm ring-4 ring-white" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB32bnUOjGRF8-h8j4HweivQKNSX8jua_2Mdj9PNiKL1sZFT_XepF9XBeiRBraUM9uiGyeZvKO1HZ1exJBJsiJkJ0o6shaFUdn_SAKfkYQeadBB21Ika5NXirnShRtvfgGXA28skGpoi1L7NvUa3HJOmBjrQJAAoZ0GNYL9eTDPIFiWrQYu0MgwMwrojAz3ezol3m62Pn4jOLA8fB-pEshNjuVILaUxtmnjfoR5h1rYadzI0QSPJgksrsJg3o6QJn_QvdRdhCjn4w8");'>
+</div>
+</div>
+<div class="mt-4 text-center">
+<h2 class="text-2xl font-bold tracking-tight text-on-surface dark:text-slate-50">Joe Rosenblith</h2>
+<p class="text-on-surface-variant dark:text-slate-400 text-sm font-medium">Account Manager</p>
+</div>
+</section>
+<section class="mb-6">
+<h3 class="px-6 py-3 text-lg font-semibold text-on-surface dark:text-slate-100">Business Details</h3>
+<div class="bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800">
+<div class="flex items-center gap-4 px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-slate-400">domain</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider dark:text-slate-400">Business Name</span>
+<span class="text-base font-medium text-on-surface dark:text-slate-100">Janitorial Solutions LLC</span>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-slate-400">badge</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider dark:text-slate-400">EIN</span>
+<span class="text-base font-medium text-on-surface dark:text-slate-100">99-8765432</span>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-6">
+<h3 class="px-6 py-3 text-lg font-semibold text-on-surface dark:text-slate-100">Primary Contact</h3>
+<div class="bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800">
+<div class="flex items-center gap-4 px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-slate-400">call</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider dark:text-slate-400">Phone</span>
+<span class="text-base font-medium text-on-surface dark:text-slate-100">(617) 555-0198</span>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-slate-400">mail</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider dark:text-slate-400">Email</span>
+<span class="text-base font-medium text-on-surface dark:text-slate-100">joe@janitorialsolutions.com</span>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-6">
+<h3 class="px-6 py-3 text-lg font-semibold text-on-surface dark:text-slate-100">Logistics Addresses</h3>
+<div class="bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800">
+<div class="flex items-center gap-4 px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-slate-400">location_on</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider dark:text-slate-400">Main Warehouse</span>
+<span class="text-base font-medium text-on-surface dark:text-slate-100">123 Market St, Boston, MA 02108</span>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-slate-400">location_on</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider dark:text-slate-400">Distribution Center</span>
+<span class="text-base font-medium text-on-surface dark:text-slate-100">456 Washington St, Boston, MA 02111</span>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-slate-400">location_on</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider dark:text-slate-400">Retail Hub</span>
+<span class="text-base font-medium text-on-surface dark:text-slate-100">789 Boylston St, Boston, MA 02116</span>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h3 class="px-6 py-3 text-lg font-semibold text-on-surface dark:text-slate-100">Notifications</h3>
+<div class="bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800">
+<div class="flex items-center justify-between px-6 py-4">
+<div class="flex flex-col">
+<span class="text-base font-medium text-on-surface dark:text-slate-100">Order Updates</span>
+<span class="text-sm text-on-surface-variant dark:text-slate-400">Push notifications for deliveries</span>
+</div>
+<div class="w-12 h-7 bg-primary rounded-full relative flex items-center px-1">
+<div class="size-5 bg-white rounded-full translate-x-5 shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between px-6 py-4">
+<div class="flex flex-col">
+<span class="text-base font-medium text-on-surface dark:text-slate-100">Promotions</span>
+<span class="text-sm text-on-surface-variant dark:text-slate-400">Exclusive B2B offers</span>
+</div>
+<div class="w-12 h-7 bg-slate-200 dark:bg-slate-700 rounded-full relative flex items-center px-1">
+<div class="size-5 bg-white rounded-full translate-x-0 shadow-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<div class="px-6 pb-12 flex flex-col items-center gap-4">
+<button class="w-full h-14 bg-red-500 hover:bg-red-600 text-white font-bold rounded-2xl shadow-sm active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">logout</span>
+                Log Out
+            </button>
+<p class="text-on-surface-variant dark:text-slate-500 text-[10px] font-medium tracking-widest uppercase">Version 1.0.42</p>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex justify-around items-center h-[80px] pb-4 px-2 z-50">
+<a class="flex flex-col items-center justify-center gap-1 w-full text-on-surface-variant dark:text-slate-400" href="#">
+<div class="flex items-center justify-center h-8 w-16 rounded-full transition-colors">
+<span class="material-symbols-outlined">home</span>
+</div>
+<span class="text-[11px] font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-full text-on-surface-variant dark:text-slate-400" href="#">
+<div class="flex items-center justify-center h-8 w-16 rounded-full transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+<span class="text-[11px] font-semibold">Catalog</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-full text-on-surface-variant dark:text-slate-400" href="#">
+<div class="flex items-center justify-center h-8 w-16 rounded-full transition-colors">
+<span class="material-symbols-outlined">business</span>
+</div>
+<span class="text-[11px] font-semibold">Account</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-full text-primary dark:text-primary" href="#">
+<div class="bg-primary/10 flex items-center justify-center h-8 w-16 rounded-full">
+<span class="material-symbols-outlined active-icon">person</span>
+</div>
+<span class="text-[11px] font-bold">Profile</span>
+</a>
+</nav>
+
+</body></html>
