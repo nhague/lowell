@@ -42,9 +42,10 @@
         }
       ]
     ],
-    "typedRoutes": true,
-    "reactCompiler": true,
-    "baseUrl": "/lowell"
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true,
+      "baseUrl": "/lowell"
+    }
   }
-}
 }
