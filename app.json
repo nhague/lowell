@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.lowell"
+      "bundleIdentifier": "com.anonymous.lowell",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -46,6 +49,12 @@
       "typedRoutes": true,
       "reactCompiler": true,
       "baseUrl": "/lowell"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "5d45c88b-da81-49c5-b587-f8d70f1050a5"
+      }
     }
   }
 }
