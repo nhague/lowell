@@ -1,5 +1,6 @@
 import ScreenWrapper from '@/components/ScreenWrapper';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { Button, Chip, IconButton, Searchbar, Surface, Text, useTheme } from 'react-native-paper';
@@ -60,6 +61,7 @@ const CATEGORIES = [
 
 export default function CatalogScreen() {
     const theme = useTheme();
+    const router = useRouter();
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -119,9 +121,9 @@ export default function CatalogScreen() {
 
                 <View style={{ gap: 16 }}>
                     {PRODUCTS.map(product => (
-                        <Surface key={product.id} style={[styles.productRow, { backgroundColor: theme.colors.surface }]} elevation={1}>
+                        <Surface key={product.id} style={[styles.productRow, { backgroundColor: theme.colors.surface }]} elevation={1} onTouchEnd={() => router.push('/product/1')}>
                             <View style={styles.productImageContainer}>
-                                <Image source={{ uri: product.image }} style={styles.productImage} />
+                                <Image source={typeof product.image === 'string' ? { uri: product.image } : product.image} style={styles.productImage} />
                                 {product.badge && (
                                     <View style={[styles.pickupBadge, { backgroundColor: '#dcfce7' }]}>
                                         <Text style={{ fontSize: 10, fontWeight: 'bold', color: '#15803d' }}>{product.badge}</Text>

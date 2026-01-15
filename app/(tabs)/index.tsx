@@ -1,7 +1,9 @@
+import BuyAgainActionSheet from '@/components/BuyAgainActionSheet';
 import ProductCard from '@/components/ProductCard';
 import ScreenWrapper from '@/components/ScreenWrapper';
+import { useCart } from '@/context/CartContext';
 import { useRouter } from 'expo-router';
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import { IconButton, Text, useTheme } from 'react-native-paper';
 
@@ -9,12 +11,12 @@ import { IconButton, Text, useTheme } from 'react-native-paper';
 const BUY_AGAIN_ITEMS = [
   {
     id: '1',
-    title: 'Heavy Duty Degreaser 5L',
-    price: '$38.50',
-    originalPrice: '$45.00',
+    title: 'Heavy Duty Degreaser',
+    price: '$45.00',
+    originalPrice: '$52.00',
     lastOrdered: 'Oct 12',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD2EaaWKiOfd5EUktgRJPvmYwx7h4G7MeK4ma8MGj7Jc0isP4cTSNrpf_Jv_HwvgkpuvRrCwOs3CJ1CA7mEunwh5rtsiqDtf9tOkX9-PRamhA7UQwoETb2FQZduWKQvcNTV8vSStYBOAzU0coZMOvN8c_Ly6Ex4XhuHua6hoDVeKvqXjMcOab1FWDJK8hJtGJgLltTba5ysfNDUULsbjnzXlkmkvlciYuVJwMv8FGBdpYdOKNa1biKs4L77uJ3qAo0Z7hTbhSbuQtc',
-    badge: 'SAVE 15%',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAU0__0AuLIqSQwv05Q3HUD9YXZJR93NWf4QvxK0eklLqvj1Xsnrfk6K5T08IfqkjQd7soD8hBOAirbDg2l0zBEilrSOuLOAj7KsoWKuq4n4QQugIoeIyE8GPvVUvtmPb1BTdrUQMtsrg1SJb8czgUf8LmDt379Yw9M8eY17FB3aD-UQiPRGgInNolnu8OkeBipHseg0IMd1ZYHvkeiGrqKBjtvmv-cR4lmsNctgPluRh7dmIcfztoU2kbWaF79ULODxwf3DRhPtRo',
+    badge: 'Your Price',
   },
   {
     id: '2',
@@ -48,6 +50,15 @@ export default function Dashboard() {
   const theme = useTheme();
   const router = useRouter();
   const { width } = useWindowDimensions();
+  const { cartCount, addToCart } = useCart();
+  
+  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [sheetVisible, setSheetVisible] = useState(false);
+
+  const handleBuyAgainPress = (item: any) => {
+      setSelectedItem(item);
+      setSheetVisible(true);
+  };
 
   // Helper to render category item
   const renderCategory = ({ item }: { item: any }) => (
@@ -74,7 +85,15 @@ export default function Dashboard() {
       <View style={[styles.header, { backgroundColor: theme.colors.background }]}>
         <View>
           <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>Oct 24, Tuesday</Text>
-          <Text variant="titleLarge" style={{ fontWeight: 'bold' }}>Good morning, John</Text>
+          <Text variant="titleLarge" style={{ fontWeight: 'bold' }}>
+            Good morning,{' '}
+            <Text 
+              style={{ fontWeight: 'bold', color: theme.colors.primary }} 
+              onPress={() => router.push('/staff/dashboard')}
+            >
+              John
+            </Text>
+          </Text>
         </View>
         <View style={styles.cartContainer}>
           <IconButton
@@ -82,56 +101,68 @@ export default function Dashboard() {
             size={24}
             onPress={() => {}}
           />
-          <View style={styles.badge}>
-            <Text style={styles.badgeText}>2</Text>
-          </View>
+          {cartCount > 0 && (
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>{cartCount}</Text>
+            </View>
+          )}
         </View>
       </View>
 
-      <ScrollView contentContainerStyle={{ paddingBottom: 24 }} showsVerticalScrollIndicator={false}>
-        {/* Welcome Section */}
-        <View style={styles.sectionPadding}>
-          <Text variant="headlineMedium" style={{ fontWeight: '800', marginBottom: 24 }}>Welcome back!</Text>
-        </View>
+      <View style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={{ paddingBottom: 24 }} showsVerticalScrollIndicator={false}>
+            {/* Welcome Section */}
+            <View style={styles.sectionPadding}>
+            <Text variant="headlineMedium" style={{ fontWeight: '800', marginBottom: 24 }}>Welcome back!</Text>
+            </View>
 
-        {/* Buy Again Section */}
-        <View style={styles.sectionHeader}>
-          <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>Buy Again</Text>
-          <TouchableOpacity onPress={() => router.push('/catalog')}>
-             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Text variant="labelLarge" style={{ color: theme.colors.primary }}>See all</Text>
-                <IconButton icon="chevron-right" size={16} iconColor={theme.colors.primary} style={{margin: 0}} />
-             </View>
-          </TouchableOpacity>
-        </View>
+            {/* Buy Again Section */}
+            <View style={styles.sectionHeader}>
+            <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>Buy Again</Text>
+            <TouchableOpacity onPress={() => router.push('/catalog')}>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text variant="labelLarge" style={{ color: theme.colors.primary }}>See all</Text>
+                    <IconButton icon="chevron-right" size={16} iconColor={theme.colors.primary} style={{margin: 0}} />
+                </View>
+            </TouchableOpacity>
+            </View>
 
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.horizontalList}
-        >
-          {BUY_AGAIN_ITEMS.map((item) => (
-            <ProductCard
-              key={item.id}
-              {...item}
-              onAdd={() => {}}
-            />
-          ))}
+            <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.horizontalList}
+            >
+            {BUY_AGAIN_ITEMS.map((item) => (
+                <ProductCard
+                key={item.id}
+                {...item}
+                onAdd={() => handleBuyAgainPress(item)}
+                onPress={() => router.push('/product/1')}
+                />
+            ))}
+            </ScrollView>
+
+            {/* Quick Categories */}
+            <View style={[styles.sectionHeader, { marginTop: 24 }]}>
+            <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>Quick Order Categories</Text>
+            </View>
+            
+            <View style={styles.gridContainer}>
+                {QUICK_CATEGORIES.map((item) => (
+                    <View key={item.id} style={{width: (width - 48 ) / 2, marginBottom: 12}}>
+                        {renderCategory({item})}
+                    </View>
+                ))}
+            </View>
         </ScrollView>
-
-        {/* Quick Categories */}
-        <View style={[styles.sectionHeader, { marginTop: 24 }]}>
-          <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>Quick Order Categories</Text>
-        </View>
         
-        <View style={styles.gridContainer}>
-             {QUICK_CATEGORIES.map((item) => (
-                 <View key={item.id} style={{width: (width - 48 ) / 2, marginBottom: 12}}>
-                     {renderCategory({item})}
-                 </View>
-             ))}
-        </View>
-      </ScrollView>
+        <BuyAgainActionSheet 
+            visible={sheetVisible}
+            item={selectedItem}
+            onClose={() => setSheetVisible(false)}
+            onAddToCart={(qty) => addToCart(qty)}
+        />
+      </View>
     </ScreenWrapper>
   );
 }

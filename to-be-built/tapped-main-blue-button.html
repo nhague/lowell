@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>In-Store Customer POS View</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden">
+<div class="sticky top-0 z-30 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center px-4 py-3 justify-between">
+<button class="text-slate-700 dark:text-slate-200 flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight">POS Terminal</h2>
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-4 py-2 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="relative size-12 shrink-0 rounded-lg overflow-hidden border border-slate-100 dark:border-slate-700">
+<img alt="Company logo abstract geometric shape" class="w-full h-full object-cover" data-alt="Abstract blue geometric logo for Acme Cleaning Services" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOGHDFa7ZQAckrdtHETprkhLRiUFUvmIeNSYGelrOrgVu-lmE5zEBLRh5ZXGWlYAtdRRbcVNduU8_TwZcHlxqxCsxvNC7ke9unjnLlHrnWuwTLQ9-n4V-oyHMD8q_-kOCQ3EWP789WfPrY5NkguV8FGjtoNRS5QIctHxI6PiMU32YXughgmPzp4iU5Zl9_LIenu7frF2SaeJouQ3qYxxReVhByJplaRCNYYX0peY69Y-ObbJCwxocxGP5D-WnLYxdSi_ZkqqTEb-U"/>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold leading-tight">Acme Cleaning Services</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">ID: #8821 • Net 30</p>
+</div>
+</div>
+<button class="text-primary text-xs font-semibold px-2 py-1 bg-primary/10 rounded hover:bg-primary/20 transition-colors">
+                    Change
+                </button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold border border-amber-200 dark:border-amber-800">
+<span class="material-symbols-outlined text-[16px]">workspace_premium</span>
+                    GOLD PARTNER
+                </span>
+<span class="text-xs font-medium text-primary">15% Discount Active</span>
+</div>
+</div>
+</div>
+<div class="pt-4 px-4 pb-2">
+<label class="flex flex-col h-12 w-full mb-4 group">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 group-focus-within:border-primary group-focus-within:ring-1 group-focus-within:ring-primary transition-all">
+<div class="text-slate-400 flex items-center justify-center pl-3 pr-2">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 bg-transparent text-slate-900 dark:text-slate-100 focus:outline-0 placeholder:text-slate-400 text-base font-normal leading-normal" placeholder="Search SKU, Name..." value=""/>
+<button class="text-slate-400 flex items-center justify-center px-3 hover:text-primary transition-colors border-l border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+</div>
+</label>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+<button class="whitespace-nowrap px-4 py-2 bg-primary text-white rounded-full text-sm font-medium shadow-sm shadow-primary/30">
+                All Products
+            </button>
+<button class="whitespace-nowrap px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
+                Chemicals
+            </button>
+<button class="whitespace-nowrap px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
+                Janitorial Tools
+            </button>
+<button class="whitespace-nowrap px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
+                Paper Products
+            </button>
+<button class="whitespace-nowrap px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
+                Safety Gear
+            </button>
+</div>
+</div>
+<div class="px-4 py-2 flex justify-between items-end">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Catalog</h3>
+<span class="text-xs text-slate-500 font-medium">Showing 42 items</span>
+</div>
+<div class="grid grid-cols-2 gap-3 px-4 pb-4">
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col">
+<div class="aspect-square relative w-full bg-slate-50 dark:bg-slate-700">
+<img alt="Industrial Floor Cleaner" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal" data-alt="Gallon jug of industrial blue floor cleaner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz9Ff0DGyOwPAwnWLjWRu6o3GZnd7CQhBpo0M8MExE1KD2UuDCRupgSEVgwJO3VMHsXT5SZUKVhJ4XHfJ8RbhdoYibbqnvuxqXGxnQnXotM1_wYs_FM50Q2PD7R4qUFMmhIiv1yJFJJT714nUmR5c3tYGUKnh9bxdEZIF8L89hfPLEywyaN1agnb5YTvnXHlU7APgtv-taP1VvAKTu9W9yZ4HQjrlmTZwtigkfdeUwUZ60CJ_epbyJnqpe_uH1CH_un0KXj-cZAiM"/>
+<div class="absolute top-2 right-2 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-[10px] font-bold px-1.5 py-0.5 rounded">
+                    IN STOCK
+                </div>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<p class="text-xs text-slate-400 mb-0.5 uppercase tracking-wide">Chemicals</p>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight mb-2 line-clamp-2">Ultra-Gloss Floor Finish (1 Gallon)</h4>
+<div class="mt-auto">
+<div class="flex flex-col mb-3">
+<span class="text-xs text-slate-400 line-through decoration-slate-400">$45.00 List</span>
+<div class="flex items-baseline gap-1">
+<span class="text-lg font-bold text-primary">$38.25</span>
+<span class="text-[10px] text-primary font-medium bg-primary/10 px-1 rounded">-15%</span>
+</div>
+</div>
+<button class="w-full h-9 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg text-sm font-semibold flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                        Add
+                    </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col">
+<div class="aspect-square relative w-full bg-slate-50 dark:bg-slate-700">
+<img alt="Paper Towels Bulk" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal" data-alt="Stack of white paper towel rolls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDemwZBrYoR_V6N7W4ZIJDh56aJ8nW1xvZsmM5dKozjpaocBSwFnUSssswLW91E4K4b8yTSFNHSqMsckbhqG1XPVy5d4O4Ce7oDOWHimZjsZg_mDG36RBH4q12DtdQzIgL_PJkQy3t4Y1asDRbiB-BTnGS0vu5NZFYL9Q8sZFjY43rYBit0Tza4NBd0hHU4nSsacai3ov0pNm_EW_zlR8Y8FiBW0D-nwiMzG66PFHG_O7L8tS21XWO3zTHcFFzLfQI-KOTsTW1GAnQ"/>
+<div class="absolute top-2 right-2 bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-[10px] font-bold px-1.5 py-0.5 rounded">
+                    LOW STOCK
+                </div>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<p class="text-xs text-slate-400 mb-0.5 uppercase tracking-wide">Paper</p>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight mb-2 line-clamp-2">Multi-Fold Paper Towels (Case of 12)</h4>
+<div class="mt-auto">
+<div class="flex flex-col mb-3">
+<span class="text-xs text-slate-400 line-through decoration-slate-400">$32.00 List</span>
+<div class="flex items-baseline gap-1">
+<span class="text-lg font-bold text-primary">$27.20</span>
+<span class="text-[10px] text-primary font-medium bg-primary/10 px-1 rounded">-15%</span>
+</div>
+</div>
+<button class="w-full h-9 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg text-sm font-semibold flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                        Add
+                    </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col">
+<div class="aspect-square relative w-full bg-slate-50 dark:bg-slate-700">
+<img alt="Microfiber Mop Head" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal" data-alt="Close up of microfiber blue mop head" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnQxC-5uNDiHTbghFxTqBhseIlJa0EDRZXBFt-KvMfv_bC1taDcwMrR4wQQ32rtD_LRC81ZQOl_pX0xsAJMavnjRB1wr1Vua7o0o-MAm4PIxRzUGv0fzKFk7HIi9bHPiPb-ociaZtNT_EfgHvJXR_Hqv8D1AzSy7PX0jUFuxuoZy2VUmNFFizt_AahwRFPfK8Hbb91-kU8xlt_Q_IcPqhEfcoPZQyuqpId8mZ2ruIoFW14iRS08PHXrqxkb_OEy5Vgxqj7u91PMwA"/>
+<div class="absolute top-2 right-2 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-[10px] font-bold px-1.5 py-0.5 rounded">
+                    IN STOCK
+                </div>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<p class="text-xs text-slate-400 mb-0.5 uppercase tracking-wide">Tools</p>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight mb-2 line-clamp-2">Heavy Duty Loop Mop Head</h4>
+<div class="mt-auto">
+<div class="flex flex-col mb-3">
+<span class="text-xs text-slate-400 line-through decoration-slate-400">$18.50 List</span>
+<div class="flex items-baseline gap-1">
+<span class="text-lg font-bold text-primary">$15.72</span>
+<span class="text-[10px] text-primary font-medium bg-primary/10 px-1 rounded">-15%</span>
+</div>
+</div>
+<div class="flex items-center justify-between h-9 bg-slate-100 dark:bg-slate-700 rounded-lg px-1">
+<button class="size-7 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-600 rounded shadow-sm">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="text-sm font-bold">2</span>
+<button class="size-7 flex items-center justify-center text-primary bg-white dark:bg-slate-600 rounded shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col">
+<div class="aspect-square relative w-full bg-slate-50 dark:bg-slate-700">
+<img alt="Glass Cleaner" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal" data-alt="Plastic bottle of industrial glass cleaner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDVrv_lzL8aCLoxaQgV2tH4lTSMUg7sgV0aqodh2ZVM4edXnA2rre67HrgU_1Hr4CPoQGKuK650nqA5X8bl_dIcGFvZZRnszUjti1ZBUQkdZVcWdg4erFpcRYVs30ldSgRmgVQxarL8KlM-Jl6IuxPz1cJx0W8dgVwdhTtC66xpsfDGzXD07sWgn4_wCMAkJ8RfQ9M5hg9D1Pre2vjOs0WGO7ND7hrGRTo0oLV7S3XL7gWOu06wBy-kcipo1Jkn5h5ydoScDuRb-I"/>
+<div class="absolute top-2 right-2 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-[10px] font-bold px-1.5 py-0.5 rounded">
+                    OUT OF STOCK
+                </div>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<p class="text-xs text-slate-400 mb-0.5 uppercase tracking-wide">Chemicals</p>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-tight mb-2 line-clamp-2">Crystal Clear Glass Cleaner</h4>
+<div class="mt-auto">
+<div class="flex flex-col mb-3">
+<span class="text-xs text-slate-400 line-through decoration-slate-400">$12.00 List</span>
+<div class="flex items-baseline gap-1">
+<span class="text-lg font-bold text-primary">$10.20</span>
+<span class="text-[10px] text-primary font-medium bg-primary/10 px-1 rounded">-15%</span>
+</div>
+</div>
+<button class="w-full h-9 bg-slate-100 dark:bg-slate-700 text-slate-400 rounded-lg text-sm font-semibold flex items-center justify-center gap-1 cursor-not-allowed">
+                        Notify Me
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-4 pb-8 mt-2">
+<div class="flex items-center justify-between mb-3">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 font-medium">Current Transaction</span>
+<div class="flex items-baseline gap-1">
+<span class="text-xl font-bold text-slate-900 dark:text-slate-100">$58.64</span>
+<span class="text-xs text-slate-400">(2 Items)</span>
+</div>
+</div>
+<button class="text-primary text-sm font-medium flex items-center gap-1 hover:underline">
+                View Details <span class="material-symbols-outlined text-[16px]">expand_less</span>
+</button>
+</div>
+<button class="w-full h-12 bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all text-white rounded-xl text-base font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/25">
+<span>Checkout</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="fixed bottom-6 right-4 z-30">
+<button class="size-14 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">barcode_scanner</span>
+</button>
+</div>
+
+</body></html>

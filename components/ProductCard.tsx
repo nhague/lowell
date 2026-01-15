@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { IconButton, Surface, Text, useTheme } from 'react-native-paper';
 
 interface ProductCardProps {
@@ -11,6 +11,7 @@ interface ProductCardProps {
   lastOrdered?: string;
   badge?: string;
   onAdd?: () => void;
+  onPress?: () => void;
 }
 
 export default function ProductCard({
@@ -21,6 +22,7 @@ export default function ProductCard({
   lastOrdered,
   badge,
   onAdd,
+  onPress,
 }: ProductCardProps) {
   const theme = useTheme();
 
@@ -29,64 +31,69 @@ export default function ProductCard({
       style={[styles.container, { backgroundColor: theme.colors.surface }]}
       elevation={1}
     >
-      <View style={styles.imageContainer}>
-        <Image
-          source={{ uri: image }}
-          style={styles.image}
-          contentFit="cover"
-        />
-        {badge && (
-          <View style={[styles.badge, { backgroundColor: '#dcfce7' }]}>
-            <Text style={[styles.badgeText, { color: '#15803d' }]}>{badge}</Text>
-          </View>
-        )}
-      </View>
-
-      <View style={styles.content}>
-        {lastOrdered && (
-          <View style={styles.historyContainer}>
-             {/* Using material symbol font if available or simple text */}
-            <Text style={[styles.historyText, { color: theme.colors.onSurfaceVariant }]}>
-              {lastOrdered}
-            </Text>
-          </View>
-        )}
-        <Text
-          variant="labelMedium"
-          style={[styles.title, { color: theme.colors.onSurface }]}
-          numberOfLines={2}
-        >
-          {title}
-        </Text>
-
-        <View style={styles.priceContainer}>
-           <View>
-              {originalPrice && (
-                <Text
-                  variant="bodySmall"
-                  style={[styles.originalPrice, { color: theme.colors.onSurfaceVariant }]}
-                >
-                  {originalPrice}
-                </Text>
-              )}
-              <Text
-                variant="titleSmall"
-                style={[styles.price, { color: theme.colors.primary }]}
-              >
-                {price}
-              </Text>
-           </View>
-          <IconButton
-            icon="plus"
-            mode="contained"
-            containerColor={theme.colors.primary}
-            iconColor={theme.colors.onPrimary}
-            size={20}
-            onPress={onAdd}
-            style={styles.addButton}
+      <Pressable onPress={onPress} style={{ flex: 1 }}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={typeof image === 'string' ? { uri: image } : image}
+            style={styles.image}
+            contentFit="cover"
           />
+          {badge && (
+            <View style={[styles.badge, { backgroundColor: '#dcfce7' }]}>
+              <Text style={[styles.badgeText, { color: '#15803d' }]}>{badge}</Text>
+            </View>
+          )}
         </View>
-      </View>
+
+        <View style={styles.content}>
+          {lastOrdered && (
+            <View style={styles.historyContainer}>
+              {/* Using material symbol font if available or simple text */}
+              <Text style={[styles.historyText, { color: theme.colors.onSurfaceVariant }]}>
+                {lastOrdered}
+              </Text>
+            </View>
+          )}
+          <Text
+            variant="labelMedium"
+            style={[styles.title, { color: theme.colors.onSurface }]}
+            numberOfLines={2}
+          >
+            {title}
+          </Text>
+
+          <View style={styles.priceContainer}>
+            <View>
+                {originalPrice && (
+                  <Text
+                    variant="bodySmall"
+                    style={[styles.originalPrice, { color: theme.colors.onSurfaceVariant }]}
+                  >
+                    {originalPrice}
+                  </Text>
+                )}
+                <Text
+                  variant="titleSmall"
+                  style={[styles.price, { color: theme.colors.primary }]}
+                >
+                  {price}
+                </Text>
+            </View>
+            <IconButton
+              icon="plus"
+              mode="contained"
+              containerColor={theme.colors.primary}
+              iconColor={theme.colors.onPrimary}
+              size={20}
+              onPress={(e) => {
+                e.stopPropagation();
+                onAdd?.();
+              }}
+              style={styles.addButton}
+            />
+          </View>
+        </View>
+      </Pressable>
     </Surface>
   );
 }

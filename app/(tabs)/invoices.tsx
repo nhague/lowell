@@ -1,3 +1,4 @@
+import PaymentBottomSheet from '@/components/PaymentBottomSheet';
 import ScreenWrapper from '@/components/ScreenWrapper';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
@@ -55,6 +56,7 @@ export default function InvoicesScreen() {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState('');
     const [filter, setFilter] = useState('All');
+    const [paymentVisible, setPaymentVisible] = useState(false);
 
     return (
         <ScreenWrapper>
@@ -146,7 +148,13 @@ export default function InvoicesScreen() {
                 label="Pay Outstanding ($3,450)"
                 style={[styles.fab, { backgroundColor: theme.colors.onSurface }]}
                 color={theme.colors.surface}
-                onPress={() => console.log('Pay')}
+                onPress={() => setPaymentVisible(true)}
+            />
+            
+            <PaymentBottomSheet
+                visible={paymentVisible}
+                onDismiss={() => setPaymentVisible(false)}
+                amount="$3,450.00"
             />
         </ScreenWrapper>
     );

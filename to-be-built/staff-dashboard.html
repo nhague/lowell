@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Operations Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-white pb-24">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between px-4 py-3">
+<button class="p-2 -ml-2 rounded-full active:bg-slate-200 dark:active:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-200">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">cleaning_services</span>
+<h1 class="text-lg font-bold tracking-tight">Staff Ops</h1>
+</div>
+<button class="relative overflow-hidden w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700">
+<div class="w-full h-full bg-cover bg-center" data-alt="Staff member profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3s_ifAZ1VeWGE8YTfL_99YFcMc1dcgewHIqlzUXAoy8dOPztrdsthWB5faya8baZkW32WOI6BXKwjhw8_55l2wSHChSUkkCFCONSuLIsUdMLyEwdhEvaV_gbF9XoYXwOFbLZ2kExAxunb6WtVFi50S15H9wNl1AJhHov_bd1XDlNJSwdCD6c9yQvGrWlSkKgoxXt2NWtXt3pfqS_Lm5NJXdqow2tiCcD4vZ3tVryECxFRbsmm8gtaUcm08OPXcKZdIoHsC3YgBSQ');"></div>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="px-4 pb-3">
+<div class="relative flex items-center w-full h-11 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden group focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition-all">
+<div class="grid place-items-center h-full w-10 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="peer h-full w-full outline-none text-sm text-slate-700 dark:text-slate-200 pr-2 bg-transparent placeholder-slate-400" id="search" placeholder="Search products, orders, customers..." type="text"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex flex-col gap-6 w-full max-w-md mx-auto">
+<!-- Quick Actions (Chips) -->
+<section class="flex gap-3 px-4 overflow-x-auto no-scrollbar pt-4">
+<button class="flex shrink-0 items-center gap-2 h-9 px-4 rounded-full bg-primary text-white shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">barcode_scanner</span>
+<span class="text-sm font-semibold">Scan</span>
+</button>
+<button class="flex shrink-0 items-center gap-2 h-9 px-4 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm active:bg-slate-50 dark:active:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary">add_circle</span>
+<span class="text-sm font-medium">New Walk-in</span>
+</button>
+<button class="flex shrink-0 items-center gap-2 h-9 px-4 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm active:bg-slate-50 dark:active:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary">person_search</span>
+<span class="text-sm font-medium">Lookup</span>
+</button>
+<button class="flex shrink-0 items-center gap-2 h-9 px-4 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm active:bg-slate-50 dark:active:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary">inventory_2</span>
+<span class="text-sm font-medium">Stock</span>
+</button>
+</section>
+<!-- KPI Stats -->
+<section class="grid grid-cols-2 gap-3 px-4">
+<div class="bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Processing</p>
+<div class="flex items-end justify-between">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">12</span>
+<span class="text-xs font-medium text-orange-500 bg-orange-50 dark:bg-orange-900/30 px-1.5 py-0.5 rounded flex items-center gap-1">
+                         Orders
+                    </span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Today's Sales</p>
+<div class="flex items-end justify-between">
+<span class="text-2xl font-bold text-slate-900 dark:text-white">$4.5k</span>
+<span class="text-xs font-medium text-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 px-1.5 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">trending_up</span> +12%
+                    </span>
+</div>
+</div>
+</section>
+<!-- Active Orders Section -->
+<section class="flex flex-col">
+<div class="flex items-center justify-between px-4 mb-2">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Active Orders</h2>
+<button class="text-sm font-semibold text-primary">See All</button>
+</div>
+<div class="flex flex-col gap-3 px-4">
+<!-- Card 1 -->
+<div class="group relative flex flex-col bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden active:scale-[0.99] transition-transform">
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-xs font-medium tracking-wide">#ORD-2094</span>
+<span class="flex items-center gap-1 px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                Processing
+                            </span>
+</div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">CleanCo Services</h3>
+<div class="flex items-center text-xs text-slate-500 dark:text-slate-400 mb-3 gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">local_shipping</span> Delivery</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">package_2</span> 15 items</span>
+</div>
+<div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-3 mt-1">
+<span class="text-lg font-bold text-slate-900 dark:text-white">$452.20</span>
+<button class="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80">
+                                View Details <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex flex-col bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden active:scale-[0.99] transition-transform">
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-xs font-medium tracking-wide">#ORD-2103</span>
+<span class="flex items-center gap-1 px-2 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Ready
+                            </span>
+</div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">Sparkle Janitorial Supply</h3>
+<div class="flex items-center text-xs text-slate-500 dark:text-slate-400 mb-3 gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">storefront</span> Pickup</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">package_2</span> 4 items</span>
+</div>
+<div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-3 mt-1">
+<span class="text-lg font-bold text-slate-900 dark:text-white">$120.50</span>
+<button class="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80">
+                                View Details <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500"></div>
+</div>
+<!-- Card 3 -->
+<div class="group relative flex flex-col bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden active:scale-[0.99] transition-transform opacity-80">
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-xs font-medium tracking-wide">#ORD-2088</span>
+<span class="flex items-center gap-1 px-2 py-1 bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                Pending
+                            </span>
+</div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">City School District</h3>
+<div class="flex items-center text-xs text-slate-500 dark:text-slate-400 mb-3 gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">local_shipping</span> Delivery</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">package_2</span> 120 items</span>
+</div>
+<div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-3 mt-1">
+<span class="text-lg font-bold text-slate-900 dark:text-white">$2,105.00</span>
+<button class="flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary/80">
+                                View Details <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-500"></div>
+</div>
+</div>
+</section>
+<!-- Activity Feed Section (Mobile Right Sidebar replacement) -->
+<section class="flex flex-col px-4 pb-4">
+<div class="flex items-center justify-between mb-3 mt-2">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Recent Activity</h2>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm divide-y divide-slate-100 dark:divide-slate-700">
+<div class="p-4 flex gap-3 items-start">
+<div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-sm">payments</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Payment Received</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">From EcoClean Inc. ($120.00)</p>
+</div>
+<span class="text-xs font-medium text-slate-400 whitespace-nowrap">2m ago</span>
+</div>
+<div class="p-4 flex gap-3 items-start">
+<div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-sm">shopping_cart</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">New Order #2104</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">Office Supplies Bundle</p>
+</div>
+<span class="text-xs font-medium text-slate-400 whitespace-nowrap">15m ago</span>
+</div>
+<div class="p-4 flex gap-3 items-start">
+<div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-purple-600 dark:text-purple-400 text-sm">inventory</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Low Stock Alert</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">Industrial Bleach (5 gal) is low</p>
+</div>
+<span class="text-xs font-medium text-slate-400 whitespace-nowrap">1h ago</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 z-50 safe-area-bottom">
+<div class="flex justify-between items-center px-6 h-[64px] max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1 w-12 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform filled-icon">dashboard</span>
+<span class="text-[10px] font-medium text-primary">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-12 group">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">list_alt</span>
+<span class="text-[10px] font-medium text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">Orders</span>
+</button>
+<!-- Highlighted Center Action -->
+<button class="flex flex-col items-center justify-center -mt-8 shadow-lg shadow-primary/30 rounded-full w-14 h-14 bg-primary text-white active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]">point_of_sale</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-12 group">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">inventory</span>
+<span class="text-[10px] font-medium text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">Stock</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-12 group">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">notifications</span>
+<span class="text-[10px] font-medium text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">Alerts</span>
+</button>
+</div>
+</nav>
+<style>
+        .filled-icon { font-variation-settings: 'FILL' 1; }
+    </style>
+</body></html>
